@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #000;
+  
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  flex-wrap: wrap; /* 💡 évite que ça déborde */
+}
+
+header img {
+  width: 70px;
+  height: 72px;
+  border-radius: 50%;
+  margin-left: 40px;
+}
+nav .button-group{
+  margin-right: 25px;
+}
+nav .button-group a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  font-size : 20px;
+}
+
+nav  a.active {
+  background: #000;
+  color: #fff;
+  padding: 15px 50px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+nav .button-group ul {
+
+  margin-top: 15px;
+
+}
