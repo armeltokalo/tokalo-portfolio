@@ -135,4 +135,6 @@ nav .button-group ul {
 }
 .project-title {
   font-size: 2rem;
+  font-style: italic;      /* met en italique */
+  font-family: "Georgia", "Times New Roman", serif; /* police élégante */
 }
