@@ -50,3 +50,75 @@ nav .button-group ul {
   margin-top: 15px;
 
 }
+
+.logo-strip {
+  width: 100%;
+  padding: 40px 0;
+  background-color: white; /* ou une autre couleur */
+  overflow-x: auto; /* au cas où trop de logos */
+  margin-left: 15px;
+}
+
+.logos {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  align-items: center;
+  flex-wrap: wrap; /* ou nowrap si tu veux qu’ils restent sur une seule ligne */
+  gap: 75px; /* espace entre les logos */
+  flex-wrap: nowrap;       /* ⛔️ empêche le retour à la ligne */
+  animation: scroll-left 25s linear infinite;
+  margin-top: 150px;
+}
+
+.logos img {
+  height: 400px;
+  width: 400px;;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  border-radius: 10%;
+
+}
+
+.logos img:hover {
+  transform: scale(1.1); /* zoom au survol */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.block {
+      text-align: center;
+}
+.caption {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #000000;
+      margin-top: 0; /* retire l’espace supplémentaire */
+
+}
+.caption a{
+  text-decoration: none; /* enlève le surlignage */
+}
+.caption a:hover {
+      color: #0056b3; /* bleu plus foncé au survol */
+      
+}
+.link-arrow::after {
+  content: "➔";               /* flèche Unicode */
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 24px;            /* taille plus grande pour la flèche */
+  transition: transform 0.2s; /* effet sur hover */
+  transform: translateY(3px);
+}
+
+.link-arrow:hover::after {
+  transform: scale(1.3);      /* agrandit la flèche au survol */
+}
