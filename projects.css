@@ -57,6 +57,7 @@ nav .button-group ul {
   background-color: white; /* ou une autre couleur */
   overflow-x: auto; /* au cas où trop de logos */
   margin-left: 15px;
+ 
 }
 
 .logos {
@@ -66,7 +67,8 @@ nav .button-group ul {
   align-items: center;
   flex-wrap: wrap; /* ou nowrap si tu veux qu’ils restent sur une seule ligne */
   gap: 75px; /* espace entre les logos */
-  flex-wrap: nowrap;       /* ⛔️ empêche le retour à la ligne */
+  flex-wrap: nowrap;       /* ⛔️ empêche le retour 
+  à la ligne */
   animation: scroll-left 25s linear infinite;
   margin-top: 150px;
 }
@@ -121,4 +123,16 @@ nav .button-group ul {
 
 .link-arrow:hover::after {
   transform: scale(1.3);      /* agrandit la flèche au survol */
+}
+/* Zone contenant le titre */
+.title-container {
+  width: 80%;             /* zone d'occupation (modifiable) */
+  max-width: 1000px;      /* limite la largeur pour garder un bon design */
+  text-align: center;
+  padding: 15px;
+  transform: translateY(100px);
+  margin-left: 200px;
+}
+.project-title {
+  font-size: 2rem;
 }
