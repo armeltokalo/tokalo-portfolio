@@ -301,3 +301,11 @@ footer .sidebar {
   .sidebar .Moi p{
     line-height: 1.5;
   }
+  .home h3 a{
+    color:#551a8b ;
+    text-decoration: none;
+  }
+  .home a{
+    text-decoration: none;
+    color:#551a8b ;
+  }
