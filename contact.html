@@ -79,20 +79,6 @@
   });
 </script>
 <script>
-    // Gestion du menu hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
-    
-    // Fermer le menu quand on clique sur un lien
-    document.querySelectorAll('.button-group a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
-    });
     
     // Gestion de l'envoi du formulaire
     document.querySelector('.contact-form').addEventListener('submit', function(e) {
@@ -117,6 +103,33 @@
       }).catch(error => {
         alert("Error: " + error.message);
       });
+    });
+  </script>
+  <script>
+    // Gestion du menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      // Animation du hamburger en croix
+      hamburger.classList.toggle('active');
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.button-group a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+    
+    // Fermer le menu en cliquant à l'extérieur
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('nav') && !e.target.closest('.hamburger') && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
     });
   </script>
  
