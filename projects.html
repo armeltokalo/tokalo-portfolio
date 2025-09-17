@@ -3,13 +3,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tokalo Bi Tokalo Armel</title>
-  <link rel="stylesheet" href="projects.css"></head>
+  <link rel="stylesheet" href="test5p.css"></head>
 <body>
       <!-- Header -->
   <header>
     <a href="index.html">
        <img src="images/logo.jpg" alt="Profile">
     </a>
+    <!-- Bouton hamburger -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <div class="button-group">
             <ul>
@@ -51,7 +57,33 @@
     <div class="caption"><strong><i>An innovative project from my EMINES journey, showcasing creativity, teamwork, and problem-solving</i></strong><a href="https://github.com/armeltokalo/My-Projects" target="_blank" class="link-arrow"></a></div>
    </div>
 
+   <!-- on duplique pour effet boucle infinie -->
+    <div class="block">
+    <img src="images/ARMIX.png" alt="Logo 1">
+    <div class="caption"><strong><i>software solution for renting houses with an interactive map view.</i></strong><a href="https://github.com/armeltokalo/ARMIx" target="_blank"class="link-arrow"></a></div>
+   </div>
+   <div class="block">
+    <img src="images/EM.png" alt="Logo 3">
+    <div class="caption"><strong><i>An innovative project from my EMINES journey, showcasing creativity, teamwork, and problem-solving</i></strong><a href="https://github.com/armeltokalo/My-Projects" target="_blank" class="link-arrow"></a></div>
+   </div>
+
   </div>
  </section>
+ <script>
+    // Gestion du menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.button-group a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

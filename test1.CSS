@@ -1,0 +1,435 @@
+/* ===================
+       STYLE GLOBAL
+    =================== */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #000;
+    }
+
+    /* ===================
+       HEADER
+    =================== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
+      position: fixed;
+      width: 100%;
+      z-index: 20;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      width: 70px;
+      height: 72px;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+
+    nav .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-right: 10px;
+    }
+    nav .button-group ul a{
+      gap: 40px;
+      padding: 10px;
+    }
+
+    nav .button-group a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    nav a.active {
+      background: #000;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 50px;
+    }
+
+    /* Menu hamburger (caché par défaut) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-right: 20px;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 3px;
+      background-color: #000;
+      border-radius: 2px;
+      transition: all 0.3s linear;
+    }
+
+    /* ===================
+       HERO SECTION
+    =================== */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 120px 40px 40px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .hero-text {
+      flex: 1 1 500px;
+      max-width: 700px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      line-height: 1.3;
+      word-wrap: break-word;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(90deg, #8A5CF6, #2BA9F3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    .hero-text h1 .star {
+      color: gold;
+      font-size: 2rem;
+    }
+
+    .hero-text p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .hero-text button {
+      margin-top: 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .hero img {
+      flex: 1 1 300px;
+      max-width: 35%;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ===================
+       PAGE CONTENT
+    =================== */
+    .wrapper {
+      padding: 0 20px;
+    }
+    
+    .page-content {
+      max-width: 100%;
+      margin: 50px auto;
+      padding: 20px;
+      background: #efecec;
+      border-radius: 10px;
+      box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3),
+                  inset -5px -5px 10px rgba(255,255,255,0.5);
+    }
+
+    .post-list-heading {
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    .post-list {
+      margin-left: 10px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .post-list > li {
+      margin-bottom: 20px;
+    }
+
+    .post-meta {
+      font-size: 14px;
+      color: #828282;
+    }
+
+    .post-link {
+      display: block;
+      font-size: 18px;
+      text-decoration: none;
+      color: #551a8b;
+    }
+
+    /* ===================
+       SKILLS
+    =================== */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .skills img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .skills .S1,
+    .skills .S2,
+    .skills .S3 {
+      flex: 1 1 280px;
+      max-width: 350px;
+    }
+
+    .skills .skill {
+      color: #000;
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    .skills p {
+      line-height: 1.5;
+      color: #444;
+    }
+
+    /* ===================
+       FOOTER
+    =================== */
+    footer {
+      width: 100%;
+      background: #1a1a1a;
+      padding: 40px 20px;
+      border-radius: 5px;
+      margin-top: 50px;
+    }
+
+    footer .sidebar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .sidebar img {
+      max-width: 35%;
+      border-radius: 10px;
+      margin-top: 18px;
+    }
+
+    .sidebar .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 100px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid white;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .menu-item img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .menu-item a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .sidebar .Moi {
+      color: #fff;
+      max-width: 30%;
+      margin-top: 20px;
+    }
+
+    .sidebar .Moi p {
+      line-height: 1.5;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #551a8b;
+    }
+
+    .mail-link {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+
+    /* ===================
+       MEDIA QUERIES - RESPONSIVE
+    =================== */
+    @media screen and (max-width: 1024px) {
+      .hero-text {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 150px;
+      }
+
+      .hero img {
+        margin: 20px auto;
+      }
+      
+      nav .button-group {
+        gap: 15px;
+      }
+      
+      nav .button-group a {
+        font-size: 16px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        padding: 10px 15px;
+      }
+      
+      header img {
+        margin-left: 0;
+        width: 60px;
+        height: 60px;
+      }
+      
+      /* Afficher le bouton hamburger */
+      .hamburger {
+        display: flex;
+      }
+      
+      /* Cacher la navigation par défaut */
+      nav .button-group {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: white;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      
+      /* Afficher la navigation quand active */
+      nav .button-group.active {
+        display: flex;
+      }
+      
+      nav .button-group a {
+        margin: 10px 0;
+        text-align: center;
+        font-size: 18px;
+      }
+      
+      nav a.active {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+      
+      .skills {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sidebar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .sidebar img {
+        max-width: 100%;
+      }
+      
+      .sidebar .Moi {
+        margin-left: 0;
+        text-align: center;
+      }
+      
+      .page-content {
+        margin: 30px auto;
+        padding: 15px;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .hero {
+        padding: 120px 20px 30px;
+      }
+      
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero-text button {
+        padding: 12px 30px;
+        font-size: 14px;
+      }
+      
+      .post-list-heading {
+        font-size: 20px;
+      }
+      
+      .post-link {
+        font-size: 16px;
+      }
+      
+      .skills .skill {
+        font-size: 18px;
+      }
+    }

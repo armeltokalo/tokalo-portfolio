@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tokalo Bi Tokalo Armel</title>
-  <link rel="stylesheet" href="contact.css"></head>
+  <link rel="stylesheet" href="test3c.css"></head>
 <body>
 
   <!-- Header -->
@@ -11,6 +11,12 @@
     <a href="index.html">
        <img src="images/logo.jpg" alt="Profile">
     </a>
+    <!-- Bouton hamburger -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <div class="button-group">
             <ul>
@@ -72,6 +78,47 @@
     });
   });
 </script>
+<script>
+    // Gestion du menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.button-group a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Gestion de l'envoi du formulaire
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault(); // empêche le comportement par défaut
+
+      const form = this;
+
+      // Envoie du formulaire via fetch
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          alert("Thank you for your message! I’ll get back to you soon.");
+          form.reset(); // Vider les champs
+        } else {
+          alert("Oops! Something went wrong.");
+        }
+      }).catch(error => {
+        alert("Error: " + error.message);
+      });
+    });
+  </script>
  
 </body>
 </html>

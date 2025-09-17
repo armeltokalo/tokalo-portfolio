@@ -18,7 +18,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Tokalo Bi Tokalo Armel","name":"Tokalo Bi Tokalo Armel","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tokalo Bi Tokalo Armel" /></head>
+<link rel="stylesheet" href="test1.CSS"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Tokalo Bi Tokalo Armel" /></head>
 <body>
 
   <!-- Header -->
@@ -26,6 +26,12 @@
     <a href="index.html">
        <img src="images/logo.jpg" alt="Profile">
     </a>
+    <!-- Bouton hamburger -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <div class="button-group">
             <ul>
@@ -117,5 +123,21 @@
    </div>
   </footer>
  </div>
+ <script>
+    // Gestion du menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.button-group a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
