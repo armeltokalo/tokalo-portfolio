@@ -10,6 +10,12 @@
     <a href="index.html">
        <img src="images/logo.jpg" alt="Profile">
     </a>
+    <!-- Bouton hamburger -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <div class="button-group">
             <ul>
@@ -21,5 +27,21 @@
         </div>
     </nav>
   </header>
+<script>
+    // Gestion du menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.button-group a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
