@@ -55,6 +55,7 @@
       background-color: #000;
       border-radius: 2px;
       transition: all 0.3s linear;
+      margin-left: 180px;
     }
     
     nav .button-group {

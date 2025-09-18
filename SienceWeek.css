@@ -25,6 +25,29 @@ header img {
   border-radius: 50%;
   margin-left: 40px;
 }
+
+    /* Menu hamburger (caché par défaut) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-right: 15px;
+      margin-left: 180px;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 3px;
+      background-color: #000;
+      border-radius: 2px;
+      transition: all 0.3s linear;
+    }
 nav .button-group{
   margin-right: 25px;
 }

@@ -35,6 +35,7 @@
       margin-left: 10px;
     }
     
+    
     /* Menu hamburger (caché par défaut) */
     .hamburger {
       display: none;
@@ -47,6 +48,7 @@
       cursor: pointer;
       padding: 0;
       margin-right: 15px;
+      margin-left: 180px;
     }
 
     .hamburger span {
@@ -56,7 +58,6 @@
       border-radius: 2px;
       transition: all 0.3s linear;
     }
-    
     nav .button-group {
       margin-right: 15px;
     }
