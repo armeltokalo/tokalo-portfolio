@@ -91,9 +91,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 120px 40px 40px;
+      padding: 120px 20px 40px;
       flex-wrap: wrap;
-      gap: 30px;
     }
 
     .hero-text {
@@ -132,7 +131,7 @@
       background: #000;
       color: #fff;
       border: none;
-      padding: 15px 40px;
+      padding: 22px 65px;
       border-radius: 50px;
       font-size: 16px;
       cursor: pointer;
@@ -140,7 +139,7 @@
 
     .hero img {
       flex: 1 1 300px;
-      max-width: 55%;
+      max-width: 45%;
       margin-top: 30px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -285,7 +284,7 @@
       color: #fff;
       max-width: 40%;
       margin-top: 20px;
-      transform: translateX(200px);
+      transform: translateX(100px);
     }
 
     .sidebar .Moi p {
