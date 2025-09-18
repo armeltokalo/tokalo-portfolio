@@ -101,9 +101,9 @@
       width: 90%;
       max-width: 1000px;
       text-align: center;
-      padding: 20px;
-      margin: 0px auto;
-      transform: translateY(100px);
+      padding: 100px;
+      margin: 0px auto auto ;
+      
     }
     
     .project-title {
