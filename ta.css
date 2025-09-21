@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #000;
+  
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  flex-wrap: wrap; /* 💡 évite que ça déborde */
+}
+
+header img {
+  width: 70px;
+  height: 72px;
+  border-radius: 50%;
+  margin-left: 40px;
+}
+nav .button-group{
+  margin-right: 25px;
+}
+nav .button-group a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  font-size : 20px;
+}
+
+nav  a.active {
+  background: #000;
+  color: #fff;
+  padding: 15px 50px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+nav .button-group ul {
+
+  margin-top: 15px;
+
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero-text {
+  max-width: 50%;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+
+.hero-text button {
+  margin-top: 10px;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 50px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.hero-text button a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.hero img {
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  width:30%;
+  margin-top: 100px;
+ 
+}
+.logo-strip {
+  width: 100%;
+  padding: 40px 0;
+  background-color: white; /* ou une autre couleur */
+  overflow-x: auto; /* au cas où trop de logos */
+  margin-left: 15px;
+}
+
+.logos {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  align-items: center;
+  flex-wrap: wrap; /* ou nowrap si tu veux qu’ils restent sur une seule ligne */
+  gap: 75px; /* espace entre les logos */
+  flex-wrap: nowrap;       /* ⛔️ empêche le retour à la ligne */
+  animation: scroll-left 25s linear infinite;
+  
+}
+
+.logos img {
+  height: 200px;
+  width: 200px;;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  border-radius: 20%;
+}
+
+.logos img:hover {
+  transform: scale(1.1); /* zoom au survol */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.about-me {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  
+  line-height: 1.8;
+  color: #1f1f1f;
+}
+
+.hero-text h1 {
+  margin-bottom: 20px;
+  color: #002147;
+  border-left: 5px solid #002147;
+  padding-left: 15px;
+  font-size: 33px;
+  font-weight: bold;
+  line-height: 1.2;
+  width: 800px;
+  word-wrap: break-word;
+}
+
+.hero-text p {
+  margin-bottom: 18px;
+  font-size: 1.20em;
+   margin-top: 10px;
+  color: #444444;
+}
+
+.about-me strong {
+  font-weight: bold;
+  color: #333;
+}
