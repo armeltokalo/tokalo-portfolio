@@ -47,7 +47,7 @@
       cursor: pointer;
       padding: 0;
       margin-right: 15px;
-      margin-left: 260px;
+      margin-left: 340px;
     }
 
     .hamburger span {
@@ -97,13 +97,12 @@
     /* ===================
        TITLE CONTAINER
     =================== */
-    .title-container {
-      width: 90%;
-      max-width: 1000px;
+    .remise{
+      width: 100%;
+      max-width: 100%;
       text-align: center;
       padding: 100px;
       margin: 0px auto auto ;
-      
     }
     
     .project-title {
