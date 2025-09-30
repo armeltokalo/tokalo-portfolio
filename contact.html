@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tokalo Bi Tokalo Armel</title>
-  <link rel="stylesheet" href="contact.css"></head>
+  <link rel="stylesheet" href="tc.css"></head>
 <body>
 
   <!-- Header -->
@@ -105,14 +105,15 @@
       });
     });
   </script>
+   
   <script>
     // Gestion du menu hamburger
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       navMenu.classList.toggle('active');
-      // Animation du hamburger en croix
       hamburger.classList.toggle('active');
     });
     
@@ -131,7 +132,31 @@
         hamburger.classList.remove('active');
       }
     });
+
+    // Gestion de l'envoi du formulaire
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault(); // empêche le comportement par défaut
+
+      const form = this;
+
+      // Envoie du formulaire via fetch
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          alert("Thank you for your message! I'll get back to you soon.");
+          form.reset(); // Vider les champs
+        } else {
+          alert("Oops! Something went wrong.");
+        }
+      }).catch(error => {
+        alert("Error: " + error.message);
+      });
+    });
   </script>
- 
 </body>
 </html>

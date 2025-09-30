@@ -1,4 +1,4 @@
-/* ===================
+ /* ===================
        STYLE GLOBAL
     =================== */
     * {
@@ -22,10 +22,10 @@
       padding: 15px 20px;
       background: #fff;
       position: fixed;
-      top: 0; /* Ajouté pour coller en haut */
-      left: 0; /* Ajouté pour coller à gauche */
+      top: 0;
+      left: 0;
       width: 100%;
-      z-index: 20;
+      z-index: 1000;
       flex-wrap: wrap;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
@@ -48,8 +48,8 @@
       border: none;
       cursor: pointer;
       padding: 0;
-      margin-right: 15px;
-      margin-left: 340px;
+      z-index: 1001;
+      position: relative;
     }
 
     .hamburger span {
@@ -57,12 +57,13 @@
       height: 3px;
       background-color: #000;
       border-radius: 2px;
-      transition: all 0.3s linear;
+      transition: all 0.3s ease;
+      transform-origin: center;
     }
     
     /* Animation du hamburger en croix */
     .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
+      transform: rotate(45deg) translate(6px, 6px);
     }
     
     .hamburger.active span:nth-child(2) {
@@ -70,7 +71,7 @@
     }
     
     .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
+      transform: rotate(-45deg) translate(6px, -6px);
     }
     
     nav .button-group {
@@ -90,6 +91,11 @@
       margin-right: 30px;
       font-size: 18px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: color 0.3s ease;
+    }
+
+    nav .button-group a:hover {
+      color: #4a6ee0;
     }
 
     /* Suppression du fond noir pour MY PROJECTS */
@@ -105,7 +111,6 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      margin-top: 15px;
     }
     
     nav .button-group ul li {
@@ -143,6 +148,12 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       flex-wrap: wrap;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     }
 
     .article-image {
@@ -159,6 +170,7 @@
     h2 {
       font-size: 1.5rem;
       margin-bottom: 15px;
+      color: #333;
     }
 
     .article-description {
@@ -192,9 +204,11 @@
       color: #007BFF;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     .see-more:hover {
+      color: #0056b3;
       text-decoration: underline;
     }
 
@@ -241,47 +255,56 @@
       nav .button-group {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 80px;
-        right: 0; /* Positionné à droite */
+        position: fixed;
+        top: 0;
+        right: 0;
         background: white;
-        width: 250px; /* Largeur fixe pour le menu */
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        z-index: 100;
+        width: 280px;
+        height: 100vh;
+        padding: 80px 20px 20px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 999;
         margin-right: 0;
-        border-radius: 0 0 0 10px;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
       }
       
       /* Afficher la navigation quand active */
       nav .button-group.active {
         display: flex;
+        transform: translateX(0);
       }
       
       nav .button-group ul {
         flex-direction: column;
-        gap: 15px;
-        align-items: flex-end; /* Alignement à droite */
+        gap: 20px;
+        align-items: flex-start;
+        width: 100%;
       }
       
       nav .button-group a {
-        margin: 10px 0;
-        text-align: right; /* Texte aligné à droite */
+        margin: 0;
+        text-align: left;
         font-size: 18px;
-        margin-right: 0;
         width: 100%;
-        padding: 10px 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      
+      nav .button-group a:last-child {
+        border-bottom: none;
       }
       
       nav a.active {
-        padding: 10px 15px;
+        padding: 12px 20px;
         font-size: 16px;
-        background: transparent; /* Suppression du fond noir */
+        background: transparent;
         color: #4a6ee0;
         border: 2px solid #4a6ee0;
         text-align: center;
         border-radius: 50px;
+        margin-top: 10px;
       }
 
       .articles-container {
@@ -347,6 +370,22 @@
       }
       
       nav .button-group {
-        width: 200px; /* Largeur réduite sur mobile */
+        width: 100%;
       }
+    }
+
+    /* Overlay pour fermer le menu */
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+    }
+    
+    .menu-overlay.active {
+      display: block;
     }
