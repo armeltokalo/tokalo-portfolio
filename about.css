@@ -1,4 +1,4 @@
-/* ===================
+ /* ===================
        STYLE GLOBAL
     =================== */
     * {
@@ -7,7 +7,7 @@
     
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #fff;
       color: #000;
     }
@@ -58,6 +58,19 @@
       transition: all 0.3s linear;
     }
     
+    /* Animation du hamburger en croix */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
     nav .button-group {
       margin-right: 15px;
     }
@@ -73,13 +86,15 @@
       margin-bottom: 10px;
       margin-right: 30px;
       font-size: 18px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    /* Suppression du fond noir pour MY PROJECTS */
     nav a.active {
-      background: #000;
-      color: #fff;
+      color: #4a6ee0;
       padding: 12px 30px;
       border-radius: 50px;
+      border: 2px solid #4a6ee0;
     }
 
     nav .button-group ul {
@@ -246,13 +261,14 @@
         flex-direction: column;
         position: absolute;
         top: 80px;
-        right: 0;
+        right: 0; /* Positionné à droite */
         background: white;
-        width: 100%;
+        width: 250px; /* Largeur fixe pour le menu */
         padding: 20px;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         z-index: 100;
         margin-right: 0;
+        border-radius: 0 0 0 10px;
       }
       
       /* Afficher la navigation quand active */
@@ -263,18 +279,27 @@
       nav .button-group ul {
         flex-direction: column;
         gap: 15px;
+        align-items: flex-end; /* Alignement à droite */
       }
       
       nav .button-group a {
         margin: 10px 0;
-        text-align: center;
+        text-align: right; /* Texte aligné à droite */
         font-size: 18px;
         margin-right: 0;
+        width: 100%;
+        padding: 10px 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       
       nav a.active {
-        padding: 10px 20px;
+        padding: 10px 15px;
         font-size: 16px;
+        background: transparent; /* Suppression du fond noir */
+        color: #4a6ee0;
+        border: 2px solid #4a6ee0;
+        text-align: center;
+        border-radius: 50px;
       }
 
       .hero {
@@ -331,5 +356,9 @@
       .logos img {
         height: 60px;
         width: 60px;
+      }
+      
+      nav .button-group {
+        width: 200px; /* Largeur réduite sur mobile */
       }
     }
