@@ -446,4 +446,51 @@
         font-size: 18px;
       }
     }
-    
+  /* Style du menu déroulant */
+#nav-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 60px;   
+  margin-left: 20px; /* Décalé à droite */
+  width: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-family: Arial, Helvetica, sans-serif; /* même police pour tout */
+}
+
+/* Quand actif */
+#nav-menu.active {
+  display: flex;
+}
+
+/* Liste propre */
+#nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#nav-menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+/* Hover pour effet visuel */
+#nav-menu ul li a:hover {
+  background: #f0f0f0;
+  color: black;
+}
+
+/* Désactiver le fond noir de l'active */
+#nav-menu ul li a.active {
+  background: none;
+  color: black;
+}
+ 
