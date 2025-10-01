@@ -1,4 +1,4 @@
- /* ===================
+/* ===================
        STYLE GLOBAL
     =================== */
     * {
@@ -49,7 +49,7 @@
       cursor: pointer;
       padding: 0;
       z-index: 1001;
-      position: relative;
+      margin-left: 340px;
     }
 
     .hamburger span {
@@ -57,13 +57,12 @@
       height: 3px;
       background-color: #000;
       border-radius: 2px;
-      transition: all 0.3s ease;
-      transform-origin: center;
+      transition: all 0.3s linear;
     }
     
     /* Animation du hamburger en croix */
     .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
+      transform: rotate(45deg) translate(5px, 5px);
     }
     
     .hamburger.active span:nth-child(2) {
@@ -71,7 +70,7 @@
     }
     
     .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
+      transform: rotate(-45deg) translate(7px, -6px);
     }
     
     nav .button-group {
@@ -91,11 +90,6 @@
       margin-right: 30px;
       font-size: 18px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition: color 0.3s ease;
-    }
-
-    nav .button-group a:hover {
-      color: #4a6ee0;
     }
 
     /* Suppression du fond noir pour MY PROJECTS */
@@ -111,6 +105,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      margin-top: 15px;
     }
     
     nav .button-group ul li {
@@ -235,6 +230,7 @@
       }
     }
 
+    /* MODIFICATIONS PRINCIPALES POUR LE MENU MOBILE */
     @media screen and (max-width: 768px) {
       header {
         padding: 10px 15px;
@@ -251,60 +247,55 @@
         display: flex;
       }
       
-      /* Cacher la navigation par défaut */
+      /* Cacher la navigation par défaut - MENU COMPACT COMME LE DEUXIEME CODE */
       nav .button-group {
         display: none;
         flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
+        position: absolute;
+        top: 80px; /* Positionné juste en dessous du header */
+        right: 0; /* Positionné à droite */
         background: white;
-        width: 280px;
-        height: 100vh;
-        padding: 80px 20px 20px;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        z-index: 999;
+        width: 250px; /* Largeur fixe pour le menu */
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 100;
         margin-right: 0;
+        border-radius: 0 0 0 10px;
+        /* Supprimer les propriétés de hauteur complète */
+        height: auto;
+        max-height: 400px; /* Hauteur maximale raisonnable */
         overflow-y: auto;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
       }
       
       /* Afficher la navigation quand active */
       nav .button-group.active {
         display: flex;
-        transform: translateX(0);
       }
       
       nav .button-group ul {
         flex-direction: column;
-        gap: 20px;
-        align-items: flex-start;
-        width: 100%;
+        gap: 15px;
+        align-items: flex-end; /* Alignement à droite */
       }
       
       nav .button-group a {
-        margin: 0;
-        text-align: left;
+        margin: 10px 0;
+        text-align: right; /* Texte aligné à droite */
         font-size: 18px;
+        margin-right: 0;
         width: 100%;
-        padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
-      }
-      
-      nav .button-group a:last-child {
-        border-bottom: none;
+        padding: 10px 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
       
       nav a.active {
-        padding: 12px 20px;
+        padding: 10px 15px;
         font-size: 16px;
-        background: transparent;
+        background: transparent; /* Suppression du fond noir */
         color: #4a6ee0;
         border: 2px solid #4a6ee0;
         text-align: center;
         border-radius: 50px;
-        margin-top: 10px;
       }
 
       .articles-container {
@@ -370,22 +361,6 @@
       }
       
       nav .button-group {
-        width: 100%;
+        width: 200px; /* Largeur réduite sur mobile */
       }
-    }
-
-    /* Overlay pour fermer le menu */
-    .menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 998;
-    }
-    
-    .menu-overlay.active {
-      display: block;
     }

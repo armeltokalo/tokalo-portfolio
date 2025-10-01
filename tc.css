@@ -49,6 +49,7 @@
       cursor: pointer;
       padding: 0;
       z-index: 100;
+      margin-left: 340px;
     }
 
     .hamburger span {

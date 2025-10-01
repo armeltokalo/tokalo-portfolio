@@ -73,13 +73,11 @@
     // Gestion du menu hamburger
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
-    const menuOverlay = document.getElementById('menuOverlay');
     
-    hamburger.addEventListener('click', (e) => {
-      e.stopPropagation();
+    hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+      // Animation du hamburger en croix
       hamburger.classList.toggle('active');
-      menuOverlay.classList.toggle('active');
     });
     
     // Fermer le menu quand on clique sur un lien
@@ -87,23 +85,14 @@
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
-        menuOverlay.classList.remove('active');
       });
     });
     
-    // Fermer le menu en cliquant sur l'overlay
-    menuOverlay.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-      menuOverlay.classList.remove('active');
-    });
-    
-    // Fermer le menu en appuyant sur Echap
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+    // Fermer le menu en cliquant à l'extérieur
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('nav') && !e.target.closest('.hamburger') && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
-        menuOverlay.classList.remove('active');
       }
     });
   </script>
