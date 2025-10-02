@@ -1,4 +1,4 @@
-/* ===================
+  /* ===================
        STYLE GLOBAL
     =================== */
     * {
@@ -48,8 +48,8 @@
       border: none;
       cursor: pointer;
       padding: 0;
-      margin-right: 15px;
-      margin-left: 340px;
+      z-index: 100;
+      margin-left: 270px;
     }
 
     .hamburger span {
