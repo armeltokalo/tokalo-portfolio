@@ -141,7 +141,7 @@
       font-size: 1.1rem;
       line-height: 1.6;
       color: #444;
-      text-align: left; /* Changé de center à left */
+      text-align: center; /* Changé de center à left */
       margin: 0;
       margin-left: 5%;
     }

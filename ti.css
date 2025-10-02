@@ -1,4 +1,4 @@
-/* ===================
+    /* ===================
        STYLE GLOBAL
     =================== */
     * {
@@ -47,7 +47,6 @@
       cursor: pointer;
       padding: 0;
       z-index: 100;
-      margin-left: 270px;
     }
 
     .hamburger span {
@@ -251,13 +250,12 @@
     }
 
     /* ===================
-       FOOTER
+       FOOTER CORRIGÉ
     =================== */
     footer {
       width: 100%;
       background: #1a1a1a;
       padding: 40px 20px;
-      border-radius: 5px;
       margin-top: 50px;
     }
 
@@ -265,39 +263,31 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 20px;
+      gap: 40px;
       align-items: flex-start;
-    }
-
-    .sidebar img {
-      max-width: 35%;
-      border-radius: 10px;
-      margin-top: 18px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .sidebar .menu {
       display: flex;
       flex-direction: column;
       gap: 15px;
-      margin-top: 100px;
-      transform: translateX(100px);
+      flex: 1;
+      min-width: 200px;
     }
 
     .menu-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid white;
-    }
-
-    .menu-item:last-child {
-      border-bottom: none;
+      gap: 12px;
+      padding: 8px 0;
     }
 
     .menu-item img {
       width: 24px;
       height: 24px;
+      border-radius: 4px;
     }
 
     .menu-item a {
@@ -305,27 +295,64 @@
       color: white;
       font-size: 16px;
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .menu-item a:hover {
+      color: #4fc3f7;
     }
 
     .sidebar .Moi {
       color: #fff;
-      max-width: 40%;
-      margin-top: 20px;
-      transform: translateX(100px);
+      flex: 2;
+      min-width: 300px;
+      padding: 0 20px;
+    }
+
+    .sidebar .Moi h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .sidebar .Moi h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    .sidebar .Moi h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #4fc3f7;
+      font-style: italic;
     }
 
     .sidebar .Moi p {
-      line-height: 1.5;
+      line-height: 1.6;
+      color: #ccc;
+      margin: 0;
     }
 
-    .home a {
-      text-decoration: none;
-      color: #551a8b;
+    .sidebar img {
+      flex: 1;
+      max-width: 300px;
+      border-radius: 10px;
+      align-self: center;
     }
 
     .mail-link {
       color: #4fc3f7;
       text-decoration: none;
+    }
+
+    .mail-link:hover {
+      text-decoration: underline;
+    }
+
+    .home a {
+      text-decoration: none;
+      color: #551a8b;
     }
 
     /* ===================
@@ -354,6 +381,10 @@
       nav .button-group a {
         font-size: 16px;
       }
+
+      footer .sidebar {
+        gap: 30px;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -378,9 +409,9 @@
         flex-direction: column;
         position: absolute;
         top: 80px;
-        right: 0; /* Positionné à droite */
+        right: 0;
         background: white;
-        width: 250px; /* Largeur fixe pour le menu */
+        width: 250px;
         padding: 20px;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         z-index: 100;
@@ -396,12 +427,12 @@
       nav .button-group ul {
         flex-direction: column;
         gap: 15px;
-        align-items: flex-end; /* Alignement à droite */
+        align-items: flex-end;
       }
       
       nav .button-group a {
         margin: 10px 0;
-        text-align: right; /* Texte aligné à droite */
+        text-align: right;
         font-size: 18px;
         margin-right: 0;
         width: 100%;
@@ -412,7 +443,7 @@
       nav a.active {
         padding: 10px 15px;
         font-size: 16px;
-        background: transparent; /* Suppression du fond noir */
+        background: transparent;
         color: #4a6ee0;
         border: 2px solid #4a6ee0;
         text-align: center;
@@ -432,21 +463,41 @@
         align-items: center;
       }
 
-      .sidebar {
+      /* FOOTER MOBILE CORRIGÉ */
+      footer {
+        padding: 30px 15px;
+      }
+
+      footer .sidebar {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 30px;
+      }
+
+      .sidebar .menu {
+        order: 1;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .sidebar .Moi {
+        order: 2;
+        width: 100%;
+        max-width: 500px;
+        padding: 0;
       }
 
       .sidebar img {
-        max-width: 100%;
+        order: 3;
+        max-width: 250px;
+        margin: 0 auto;
       }
-      
-      .sidebar .Moi {
-        margin-left: 0;
-        text-align: center;
+
+      .menu-item {
+        justify-content: center;
       }
-      
+
       .page-content {
         margin: 30px auto;
         padding: 15px;
@@ -480,6 +531,27 @@
       }
       
       nav .button-group {
-        width: 200px; /* Largeur réduite sur mobile */
+        width: 200px;
+      }
+
+      /* FOOTER MOBILE AVANCÉ */
+      footer {
+        padding: 25px 10px;
+      }
+
+      .sidebar .Moi h1 {
+        font-size: 1.5rem;
+      }
+
+      .sidebar .Moi h2 {
+        font-size: 1.1rem;
+      }
+
+      .sidebar .Moi h3 {
+        font-size: 1rem;
+      }
+
+      .sidebar img {
+        max-width: 200px;
       }
     }
