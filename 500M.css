@@ -285,7 +285,7 @@
 
     .image-container {
       min-width: 500px;
-      height: 500px;
+      height: 80%;
       border-radius: 12px;
       overflow: hidden;
       flex-shrink: 0;
