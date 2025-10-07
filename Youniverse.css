@@ -233,33 +233,81 @@ nav a.active {
   transform: scale(1.05);
 }
 
-/* Section images */
+/* ===================
+   CARROUSEL D'IMAGES DÉFILANT
+=================== */
 .images-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
+  position: relative;
+  width: 100%;
+  height: 500px;
   margin-top: 40px;
-  flex-wrap: nowrap;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  animation: slide 20s infinite linear;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
 .image-container {
-  width: 500px;
+  min-width: 500px;
   height: 500px;
   border-radius: 12px;
   overflow: hidden;
+  flex-shrink: 0;
+  margin: 0 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
-  flex-shrink: 0;
 }
+
+.image-container:hover {
+  transform: scale(1.05);
+}
+
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.image-container:hover {
-  transform: translateY(-5px);
+
+/* Animation du carrousel */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-500px * 3 - 90px)); /* 3 images * largeur + marges */
+  }
+}
+
+/* Indicateurs de progression */
+.carousel-progress {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: background 0.3s ease;
+}
+
+.progress-dot.active {
+  background: white;
 }
 
 /* ===================
@@ -306,7 +354,17 @@ nav a.active {
 @media screen and (max-width: 1024px) {
   nav .button-group a { font-size: 16px; margin-right: 20px; }
   .project-title { font-size: 3rem; }
+  .image-container {
+    min-width: 400px;
+    height: 400px;
+  }
+  @keyframes slide {
+    100% {
+      transform: translateX(calc(-400px * 3 - 90px));
+    }
+  }
 }
+
 @media screen and (max-width: 768px) {
   header { padding: 10px 15px; }
   header img { width: 50px; height: 50px; }
@@ -327,9 +385,33 @@ nav a.active {
   nav .button-group ul { flex-direction: column; gap: 15px; align-items: flex-end; }
   nav .button-group a { font-size: 18px; width: 100%; text-align: right; padding: 10px 0; }
   .project-title { font-size: 2.5rem; letter-spacing: 2px; }
-  .image-container { min-width: 100%; }
+  .images-section {
+    height: 350px;
+  }
+  .image-container {
+    min-width: 300px;
+    height: 350px;
+  }
+  @keyframes slide {
+    100% {
+      transform: translateX(calc(-300px * 3 - 90px));
+    }
+  }
 }
+
 @media screen and (max-width: 480px) {
   .project-title { font-size: 2rem; }
   .event-summary, .detail-card { padding: 20px; }
+  .images-section {
+    height: 250px;
+  }
+  .image-container {
+    min-width: 250px;
+    height: 250px;
+  }
+  @keyframes slide {
+    100% {
+      transform: translateX(calc(-250px * 3 - 90px));
+    }
+  }
 }

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tokalo Bi Tokalo Armel</title>
-  <link rel="stylesheet" href="Youniverse.css"></head>
+  <link rel="stylesheet" href="Youniverse.css">
+</head>
 <body>
 
   <!-- Header -->
@@ -21,13 +23,14 @@
       <div class="button-group" id="nav-menu">
             <ul>
                   <li><a href="about.html">ABOUT ME</a></li>
-                 <li> <a href=Others.html>OTHERS</a></li>             
-                  <li><a href=contact.html>CONTACT</a></li>
-                 <li><a href=projects.html class="active">MY PROJECTS</a></li>
+                 <li> <a href="Others.html">OTHERS</a></li>             
+                  <li><a href="contact.html">CONTACT</a></li>
+                 <li><a href="projects.html" class="active">MY PROJECTS</a></li>
             </ul>
         </div>
     </nav>
   </header>
+
   <!-- Main Content -->
   <main class="main-content">
     <h1 class="project-title">Youniverse Business Summit</h1>
@@ -98,22 +101,41 @@
         </div>
       </section>
       
+      <!-- Carrousel d'images défilant -->
       <section class="images-section">
-        <div class="image-container">
-          <!-- Remplacez par votre image réelle -->
-          <img src="Images1/y1.jpg" alt="Youniverse Summit Opening">
+        <div class="carousel-track">
+          <div class="image-container">
+            <img src="Images1/y1.jpg" alt="Youniverse Summit Opening">
+          </div>
+          <div class="image-container">
+            <img src="Images1/y2.jpg" alt="Panel Discussion">
+          </div>
+          <div class="image-container">
+            <img src="Images1/y3.jpg" alt="Workshop Session">
+          </div>
+          <!-- Duplication des images pour créer l'effet de boucle infinie -->
+          <div class="image-container">
+            <img src="Images1/y1.jpg" alt="Youniverse Summit Opening">
+          </div>
+          <div class="image-container">
+            <img src="Images1/y2.jpg" alt="Panel Discussion">
+          </div>
+          <div class="image-container">
+            <img src="Images1/y3.jpg" alt="Workshop Session">
+          </div>
+          <div class="image-container">
+            <img src="Images1/y3.jpg" alt="Workshop Session">
+          </div>
         </div>
-        <div class="image-container">
-          <!-- Remplacez par votre image réelle -->
-          <img src="Images1/y2.jpg" alt="Panel Discussion">
-        </div>
-        <div class="image-container">
-          <!-- Remplacez par votre image réelle -->
-          <img src="Images1/y3.jpg" alt="Workshop Session">
+        <div class="carousel-progress">
+          <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
         </div>
       </section>
     </div>
   </main>
+
   <script>
     // Gestion du menu hamburger
     const hamburger = document.getElementById('hamburger');
@@ -141,30 +163,15 @@
       }
     });
 
-    // Gestion de l'envoi du formulaire
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-      e.preventDefault(); // empêche le comportement par défaut
+    // Animation des indicateurs de progression du carrousel
+    const progressDots = document.querySelectorAll('.progress-dot');
+    let currentDot = 0;
 
-      const form = this;
-
-      // Envoie du formulaire via fetch
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          alert("Thank you for your message! I'll get back to you soon.");
-          form.reset(); // Vider les champs
-        } else {
-          alert("Oops! Something went wrong.");
-        }
-      }).catch(error => {
-        alert("Error: " + error.message);
-      });
-    });
+    setInterval(() => {
+      progressDots.forEach(dot => dot.classList.remove('active'));
+      currentDot = (currentDot + 1) % progressDots.length;
+      progressDots[currentDot].classList.add('active');
+    }, 2000);
   </script>
 </body>
 </html>
