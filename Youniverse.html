@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"><head></head>    
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tokalo Bi Tokalo Armel</title>
   <link rel="stylesheet" href="Youniverse.css"></head>
 <body>
-      <!-- Header -->
+
+  <!-- Header -->
   <header>
     <a href="index.html">
        <img src="images/logo.jpg" alt="Profile">
@@ -17,24 +18,25 @@
       <span></span>
     </button>
     <nav>
-      <div class="button-group">
+      <div class="button-group" id="nav-menu">
             <ul>
-                 <a href="about.html">ABOUT ME</a>
-                 <a href=Others.html>OTHERS</a>             
-                 <a href=contact.html>CONTACT</a>
-                 <a href=projects.html class="active">MY PROJECTS</a>
+                  <li><a href="about.html">ABOUT ME</a></li>
+                 <li> <a href=Others.html>OTHERS</a></li>             
+                  <li><a href=contact.html>CONTACT</a></li>
+                 <li><a href=projects.html class="active">MY PROJECTS</a></li>
             </ul>
         </div>
     </nav>
   </header>
-<script>
+  
+  <script>
     // Gestion du menu hamburger
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       navMenu.classList.toggle('active');
-      // Animation du hamburger en croix
       hamburger.classList.toggle('active');
     });
     
@@ -52,6 +54,31 @@
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
       }
+    });
+
+    // Gestion de l'envoi du formulaire
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault(); // empêche le comportement par défaut
+
+      const form = this;
+
+      // Envoie du formulaire via fetch
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          alert("Thank you for your message! I'll get back to you soon.");
+          form.reset(); // Vider les champs
+        } else {
+          alert("Oops! Something went wrong.");
+        }
+      }).catch(error => {
+        alert("Error: " + error.message);
+      });
     });
   </script>
 </body>
