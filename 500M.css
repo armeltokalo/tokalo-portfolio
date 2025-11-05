@@ -276,7 +276,7 @@
     .carousel-track {
       display: flex;
       height: 100%;
-      animation: slide 8s infinite linear;
+      animation: slide 25s infinite linear;
     }
 
     .carousel-track:hover {
