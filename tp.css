@@ -146,41 +146,72 @@
       margin-left: 5%;
     }
 
-    /* ===================
-       LOGO STRIP
+/* ===================
+       LOGO STRIP - AMÉLIORÉ
     =================== */
     .logo-strip {
       width: 100%;
       padding: 40px 0;
       background-color: white;
       overflow: hidden;
+      position: relative;
+    }
+
+    /* Effet de fondu sur les bords */
+    .logo-strip::before,
+    .logo-strip::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    .logo-strip::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+    }
+    
+    .logo-strip::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
     }
 
     .logos {
       display: flex;
       align-items: center;
-      gap: 40px;
-      animation: scroll-left 25s linear infinite;
-      padding: 0 20px;
+      gap: 60px; /* Plus d'espace entre les blocs */
+      animation: scroll-left 30s linear infinite; /* Animation plus lente */
+      padding: 20px;
+      will-change: transform;
     }
 
     .block {
       text-align: center;
       flex: 0 0 auto;
+      width: 320px; /* Largeur fixe pour chaque bloc */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
     .logos img {
-      height: 300px;
-      width: 300px;
-      object-fit: contain;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 10%;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+      height: 280px;
+      width: 280px;
+      object-fit: cover; /* Change de contain à cover pour mieux remplir */
+      object-position: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      border: 2px solid #f0f0f0;
     }
 
     .logos img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+      transform: scale(1.08) translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.05);
     }
 
     @keyframes scroll-left {
@@ -188,40 +219,163 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-50%);
+        transform: translateX(-33.33%); /* Décalage ajusté pour 3 projets */
       }
     }
 
     .caption {
-      margin-top: 15px;
+      margin-top: 20px;
       font-size: 16px;
       color: #000000;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100%;
+      padding: 0 15px;
       text-align: center;
+      line-height: 1.4;
     }
     
-    .caption a {
+    .caption strong {
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    
+    .link-arrow {
+      display: inline-block;
+      margin-top: 8px;
+      color: #4a6ee0;
+      font-weight: bold;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     
-    .caption a:hover {
-      color: #0056b3;
+    .link-arrow:hover {
+      color: #2a4ec0;
     }
     
     .link-arrow::after {
-      content: "➔";
+      content: " ➔";
       display: inline-block;
       margin-left: 5px;
-      font-size: 20px;
-      transition: transform 0.2s;
+      font-size: 18px;
+      transition: transform 0.3s ease;
     }
 
     .link-arrow:hover::after {
       transform: translateX(5px);
     }
 
+    /* Pause l'animation au survol */
+    .logos:hover {
+      animation-play-state: paused;
+    }
+
+    /* ===================
+       MEDIA QUERIES - MIS À JOUR
+    =================== */
+    @media screen and (max-width: 1024px) {
+      .logos {
+        gap: 50px;
+      }
+      
+      .block {
+        width: 280px;
+      }
+      
+      .logos img {
+        height: 240px;
+        width: 240px;
+      }
+      
+      .caption {
+        font-size: 15px;
+        padding: 0 10px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .logo-strip::before,
+      .logo-strip::after {
+        width: 60px;
+      }
+      
+      .logos {
+        gap: 40px;
+      }
+      
+      .block {
+        width: 240px;
+      }
+      
+      .logos img {
+        height: 200px;
+        width: 200px;
+        border-radius: 12px;
+      }
+      
+      .caption {
+        font-size: 14px;
+        margin-top: 15px;
+      }
+      
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-33.33%);
+        }
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .logo-strip {
+        padding: 30px 0;
+      }
+      
+      .logo-strip::before,
+      .logo-strip::after {
+        width: 40px;
+      }
+      
+      .logos {
+        gap: 30px;
+        animation: scroll-left 25s linear infinite;
+      }
+      
+      .block {
+        width: 200px;
+      }
+      
+      .logos img {
+        height: 160px;
+        width: 160px;
+        border-radius: 10px;
+      }
+      
+      .caption {
+        font-size: 13px;
+        margin-top: 12px;
+        padding: 0 8px;
+      }
+      
+      .link-arrow {
+        font-size: 13px;
+      }
+    }
+
+    @media screen and (max-width: 360px) {
+      .block {
+        width: 180px;
+      }
+      
+      .logos img {
+        height: 140px;
+        width: 140px;
+      }
+      
+      .caption {
+        font-size: 12px;
+      }
+    }
     /* ===================
        MEDIA QUERIES - RESPONSIVE CORRIGÉ
     =================== */
