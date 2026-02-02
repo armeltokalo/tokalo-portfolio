@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokalo Bi Tokalo Armel</title>
+  <link rel="stylesheet" href="tp.css">
+  </head>
+<body>
+      <!-- Header -->
+  <header>
+    <a href="index.html">
+       <img src="images/logo.jpg" alt="Profile">
+    </a>
+    <!-- Bouton hamburger -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <div class="button-group" id="nav-menu">
+            <ul>
+                  <li><a href="about.html">ABOUT ME</a></li>
+                 <li> <a href=Others.html>OTHERS</a></li>             
+                  <li><a href=contact.html>CONTACT</a></li>
+                 <li><a href=projects.html class="active">MY PROJECTS</a></li>
+            </ul>
+        </div>
+    </nav>
+  </header>
+
+
+ <script>
+    // Gestion du menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.button-group a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Fermer le menu en cliquant à l'extérieur
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('nav') && !e.target.closest('.hamburger') && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
