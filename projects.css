@@ -47,6 +47,7 @@
       cursor: pointer;
       padding: 0;
       z-index: 100;
+      margin-left: 270px;
     }
 
     .hamburger span {
@@ -128,6 +129,7 @@
       text-align: left;
       line-height: 1.3;
       width: 100%;
+      text-align: center;
     }
     
     .title-container p {
