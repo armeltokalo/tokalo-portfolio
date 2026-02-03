@@ -145,44 +145,42 @@
     /* ===================
        LOGO STRIP - TEXTE CLIQUABLE
     =================== */
-    .logo-strip {
-      width: 100%;
-      padding: 40px 0;
-      background-color: white;
-      overflow: hidden;
-      position: relative;
-    }
+    /* Modifiez la section .logo-strip */
+.logo-strip {
+  width: 100%;
+  padding: 40px 0;
+  background-color: white;
+  overflow-x: auto; /* Permet le défilement horizontal */
+  overflow-y: hidden;
+  position: relative;
+  -webkit-overflow-scrolling: touch; /* Défilement fluide sur iOS */
+  scrollbar-width: none; /* Masquer la scrollbar sur Firefox */
+}
 
-    /* Effet de fondu sur les bords */
-    .logo-strip::before,
-    .logo-strip::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 100px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    
-    .logo-strip::before {
-      left: 0;
-      background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
-    }
-    
-    .logo-strip::after {
-      right: 0;
-      background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-    }
+.logo-strip::-webkit-scrollbar {
+  display: none; /* Masquer la scrollbar sur Chrome/Safari */
+}
 
-    .logos {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      animation: scroll-left 40s linear infinite;
-      padding: 20px;
-      will-change: transform;
-    }
+/* Supprimez ou modifiez l'animation existante */
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 20px;
+  width: max-content; /* Permet au conteneur de s'étendre selon son contenu */
+}
+
+/* Supprimez ou commentez l'animation existante */
+/*
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+*/
 
     /* Lien qui englobe tout le bloc projet */
     .project-link {
