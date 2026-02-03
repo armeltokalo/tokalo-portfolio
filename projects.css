@@ -141,6 +141,80 @@
   margin: 0 auto; /* Centrer le paragraphe */
   max-width: 800px; /* Limiter la largeur pour une meilleure lisibilité */
 }
+/* ===================
+       MEDIA QUERIES
+    =================== */
+    @media screen and (max-width: 1024px) {
+      .remise {
+        padding: 100px 30px 30px;
+      }
+      
+      .project-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      /* CORRECTIONS POUR LE CENTRAGE MOBILE */
+      .remise {
+        padding: 90px 20px 20px;
+        text-align: center; /* Assurer le centrage */
+        display: block; /* Changer de flex à block pour mobile */
+      }
+      
+      .title-container {
+        margin: 0 auto; /* Centrer le conteneur */
+        text-align: center; /* Centrer le texte à l'intérieur */
+      }
+      
+      .project-title {
+        font-size: 1.6rem;
+        text-align: center; /* Forcer le centrage */
+        margin-bottom: 15px;
+        width: 100%;
+      }
+      
+      .title-container p {
+        font-size: 1rem;
+        text-align: center; /* Forcer le centrage */
+        line-height: 1.5;
+        margin: 0 auto; /* Centrer le paragraphe */
+        width: 100%;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .remise {
+        padding: 80px 15px 15px;
+        text-align: center;
+      }
+      
+      .project-title {
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      
+      .title-container p {
+        font-size: 0.9rem;
+        text-align: center;
+        text-align-last: center; /* Pour les dernières lignes */
+      }
+    }
+    
+    @media screen and (max-width: 360px) {
+      .remise {
+        padding: 70px 10px 10px;
+      }
+      
+      .project-title {
+        font-size: 1.3rem;
+      }
+      
+      .title-container p {
+        font-size: 0.85rem;
+      }
+    }
 
     /* ===================
        LOGO STRIP - TEXTE CLIQUABLE
