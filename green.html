@@ -246,7 +246,6 @@
                       <li>Prototype Development</li>
                       <li>Experimental Results & Performance </li>
                       <li>Business Model & Market Analysis</li>
-                      <li>Regulatory Framework & Safety Protocols</li>
                       <li>Conclusion</li>
                     </ol>
                   </div>
@@ -255,7 +254,7 @@
                     <h4>Document Specifications</h4>
                     <ul>
                       <li><strong>Format:</strong> PDF Document</li>
-                      <li><strong>Pages:</strong> 25</li>
+                      <li><strong>Pages:</strong> Around 20</li>
                       <li><strong>Figures:</strong> 12 (including CAD designs, schematics, test results)</li>
                       <li><strong>Tables:</strong> 5 (performance data, cost analysis, market comparison)</li>
                       <li><strong>References:</strong> academic and industry sources</li>
@@ -331,7 +330,7 @@
           <p>The BARTHx Corporation project is seeking industrial partners for pilot implementation and further development. Download the Letter of Intent template to express formal interest.</p>
           
           <div class="cta-buttons">
-            <a href="#contact" class="btn-primary">
+            <a href="mailto:armel.tokalo@emines.um6p.ma" class="btn-primary">
               <i class="fas fa-envelope"></i> Contact for Collaboration
             </a>
             <a href="documents/Bibliographie.pdf" class="btn-secondary" download>
@@ -436,18 +435,17 @@
 
     // Download buttons functionality
     document.querySelectorAll('.btn-download').forEach(btn => {
-      btn.addEventListener('click', () => {
-        alert('Full bibliography PDF download would start. In a real implementation, this would link to the actual PDF file.');
-        // In real implementation: window.location.href = 'documents/Bibliography.pdf';
-      });
-    });
-    
-    document.querySelectorAll('.btn-view').forEach(btn => {
-      btn.addEventListener('click', () => {
-        alert('Opening bibliography in new tab. In a real implementation, this would open the PDF.');
-        // In real implementation: window.open('documents/Bibliography.pdf', '_blank');
-      });
-    });
+  btn.addEventListener('click', () => {
+    window.location.href = 'documents/Bibliography.pdf';
+  });
+});
+
+document.querySelectorAll('.btn-view').forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.open('documents/Bibliography.pdf', '_blank');
+  });
+});
+
   </script>
 </body>
 </html>
