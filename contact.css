@@ -559,6 +559,7 @@
         display: flex;
         position: relative;
         margin: 0;
+        margin-left: auto; /* Pousse le bouton vers la droite */
         padding: 0;
         width: 35px;
         height: 35px;
