@@ -49,7 +49,6 @@
       cursor: pointer;
       padding: 0;
       z-index: 100;
-      margin-left: 270px;
     }
 
     .hamburger span {
@@ -207,6 +206,121 @@
     }
 
     @media screen and (max-width: 768px) {
+      header {
+        padding: 10px 15px;
+        position: relative;
+      }
+      
+      header img {
+        margin-left: 0;
+        width: 60px;
+        height: 60px;
+      }
+      
+      /* Correction du bouton hamburger - alignement vertical */
+      .hamburger {
+        display: flex;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        right: 0;
+        top: 0;
+      }
+      
+      /* Ajuster la taille et l'espacement des lignes */
+      .hamburger span {
+        width: 25px;
+        height: 2.5px;
+        background-color: #000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        position: absolute;
+      }
+      
+      /* Positionnement individuel des lignes */
+      .hamburger span:nth-child(1) {
+        transform: translateY(-8px);
+      }
+      
+      .hamburger span:nth-child(2) {
+        opacity: 1;
+      }
+      
+      .hamburger span:nth-child(3) {
+        transform: translateY(8px);
+      }
+      
+      /* Animation quand actif (croix) */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+      }
+      
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 50%;
+      }
+      
+      /* Cacher la navigation par défaut */
+      nav .button-group {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: white;
+        width: 250px;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+        margin-right: 0;
+        border-radius: 0 0 0 10px;
+      }
+      
+      /* Afficher la navigation quand active */
+      nav .button-group.active {
+        display: flex;
+      }
+      
+      nav .button-group ul {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-end;
+        margin: 0;
+        padding: 0;
+      }
+      
+      nav .button-group a {
+        margin: 10px 0;
+        text-align: right;
+        font-size: 18px;
+        margin-right: 0;
+        width: 100%;
+        padding: 10px 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      nav a.active {
+        padding: 10px 15px;
+        font-size: 16px;
+        background: transparent;
+        color: #4a6ee0;
+        border: 2px solid #4a6ee0;
+        text-align: center;
+        border-radius: 50px;
+      }
+
       .hero {
         flex-direction: column;
         text-align: center;
@@ -237,8 +351,64 @@
       .hero-text button {
         padding: 16px 40px;
       }
-    }
+      
+      .skills {
+        flex-direction: column;
+        align-items: center;
+      }
 
+      /* FOOTER MOBILE CORRIGÉ */
+      footer {
+        padding: 30px 15px;
+      }
+
+      footer .sidebar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .sidebar .menu {
+        order: 1;
+        width: 100%;
+        max-width: 300px;
+        align-items: center;
+      }
+
+      .menu-item {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .menu-item img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .menu-item a {
+        font-size: 15px;
+      }
+
+      .sidebar .Moi {
+        order: 2;
+        width: 100%;
+        max-width: 500px;
+        padding: 0;
+      }
+
+      .sidebar img {
+        order: 3;
+        max-width: 250px;
+        margin: 0 auto;
+      }
+
+      .page-content {
+        margin: 30px auto;
+        padding: 15px;
+      }
+    }
+    
     @media screen and (max-width: 480px) {
       .hero {
         padding: 100px 15px 40px;
@@ -256,6 +426,52 @@
       .hero-text button {
         padding: 14px 35px;
         font-size: 15px;
+      }
+      
+      .post-list-heading {
+        font-size: 20px;
+      }
+      
+      .post-link {
+        font-size: 16px;
+      }
+      
+      .skills .skill {
+        font-size: 18px;
+      }
+      
+      nav .button-group {
+        width: 200px;
+      }
+
+      /* FOOTER MOBILE AVANCÉ */
+      footer {
+        padding: 25px 10px;
+      }
+
+      .sidebar .Moi h1 {
+        font-size: 1.5rem;
+      }
+
+      .sidebar .Moi h2 {
+        font-size: 1.1rem;
+      }
+
+      .sidebar .Moi h3 {
+        font-size: 1rem;
+      }
+
+      .sidebar img {
+        max-width: 200px;
+      }
+
+      .menu-item img {
+        width: 22px;
+        height: 22px;
+      }
+
+      .menu-item a {
+        font-size: 14px;
       }
     }
     
@@ -488,194 +704,5 @@
 
       footer .sidebar {
         gap: 30px;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      header {
-        padding: 10px 15px;
-      }
-      
-      header img {
-        margin-left: 0;
-        width: 60px;
-        height: 60px;
-      }
-      
-      /* Afficher le bouton hamburger */
-      .hamburger {
-        display: flex;
-      }
-      
-      /* Cacher la navigation par défaut */
-      nav .button-group {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        right: 0;
-        background: white;
-        width: 250px;
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        z-index: 100;
-        margin-right: 0;
-        border-radius: 0 0 0 10px;
-      }
-      
-      /* Afficher la navigation quand active */
-      nav .button-group.active {
-        display: flex;
-      }
-      
-      nav .button-group ul {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-end;
-      }
-      
-      nav .button-group a {
-        margin: 10px 0;
-        text-align: right;
-        font-size: 18px;
-        margin-right: 0;
-        width: 100%;
-        padding: 10px 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
-      
-      nav a.active {
-        padding: 10px 15px;
-        font-size: 16px;
-        background: transparent;
-        color: #4a6ee0;
-        border: 2px solid #4a6ee0;
-        text-align: center;
-        border-radius: 50px;
-      }
-
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-      
-      .hero-text p {
-        font-size: 1.1rem;
-      }
-      
-      .skills {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      /* FOOTER MOBILE CORRIGÉ */
-      footer {
-        padding: 30px 15px;
-      }
-
-      footer .sidebar {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .sidebar .menu {
-        order: 1;
-        width: 100%;
-        max-width: 300px;
-        align-items: center;
-      }
-
-      .menu-item {
-        justify-content: center;
-        width: 100%;
-      }
-
-      .menu-item img {
-        width: 24px;
-        height: 24px;
-      }
-
-      .menu-item a {
-        font-size: 15px;
-      }
-
-      .sidebar .Moi {
-        order: 2;
-        width: 100%;
-        max-width: 500px;
-        padding: 0;
-      }
-
-      .sidebar img {
-        order: 3;
-        max-width: 250px;
-        margin: 0 auto;
-      }
-
-      .page-content {
-        margin: 30px auto;
-        padding: 15px;
-      }
-    }
-    
-    @media screen and (max-width: 480px) {
-      .hero {
-        padding: 120px 20px 30px;
-      }
-      
-      .hero-text h1 {
-        font-size: 1.8rem;
-      }
-      
-      .hero-text button {
-        padding: 12px 30px;
-        font-size: 14px;
-      }
-      
-      .post-list-heading {
-        font-size: 20px;
-      }
-      
-      .post-link {
-        font-size: 16px;
-      }
-      
-      .skills .skill {
-        font-size: 18px;
-      }
-      
-      nav .button-group {
-        width: 200px;
-      }
-
-      /* FOOTER MOBILE AVANCÉ */
-      footer {
-        padding: 25px 10px;
-      }
-
-      .sidebar .Moi h1 {
-        font-size: 1.5rem;
-      }
-
-      .sidebar .Moi h2 {
-        font-size: 1.1rem;
-      }
-
-      .sidebar .Moi h3 {
-        font-size: 1rem;
-      }
-
-      .sidebar img {
-        max-width: 200px;
-      }
-
-      .menu-item img {
-        width: 22px;
-        height: 22px;
-      }
-
-      .menu-item a {
-        font-size: 14px;
       }
     }

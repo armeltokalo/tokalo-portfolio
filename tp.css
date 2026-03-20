@@ -49,7 +49,6 @@
       cursor: pointer;
       padding: 0;
       z-index: 100;
-      margin-left: 270px;
     }
 
     .hamburger span {
@@ -345,6 +344,7 @@
     @media screen and (max-width: 768px) {
       header {
         padding: 10px 15px;
+        position: relative;
       }
       
       header img {
@@ -353,9 +353,59 @@
         margin-left: 0;
       }
       
-      /* Afficher le bouton hamburger */
+      /* Correction du bouton hamburger - alignement vertical */
       .hamburger {
         display: flex;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        right: 0;
+        top: 0;
+      }
+      
+      /* Ajuster la taille et l'espacement des lignes */
+      .hamburger span {
+        width: 25px;
+        height: 2.5px;
+        background-color: #000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        position: absolute;
+      }
+      
+      /* Positionnement individuel des lignes */
+      .hamburger span:nth-child(1) {
+        transform: translateY(-8px);
+      }
+      
+      .hamburger span:nth-child(2) {
+        opacity: 1;
+      }
+      
+      .hamburger span:nth-child(3) {
+        transform: translateY(8px);
+      }
+      
+      /* Animation quand actif (croix) */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+      }
+      
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 50%;
       }
       
       /* Cacher la navigation par défaut */
@@ -383,6 +433,8 @@
         flex-direction: column;
         gap: 15px;
         align-items: flex-end;
+        margin: 0;
+        padding: 0;
       }
       
       nav .button-group a {
