@@ -33,6 +33,8 @@
       height: 72px;
       border-radius: 50%;
       margin-left: 10px;
+      object-fit: cover;
+      border: 2px solid #4a6ee0;
     }
     
     /* Menu hamburger (caché par défaut) */
@@ -47,6 +49,7 @@
       cursor: pointer;
       padding: 0;
       z-index: 100;
+      margin-left: 270px;
     }
 
     .hamburger span {
@@ -110,32 +113,35 @@
     .remise {
       width: 100%;
       max-width: 1200px;
-      text-align: left;
+      text-align: center;
       padding: 120px 40px 40px;
       margin: 0 auto;
+      display: flex;
+      justify-content: center;
     }
-    
+
     .title-container {
       max-width: 900px;
-      margin: 0;
+      margin: 0 auto;
     }
-    
+
     .project-title {
       font-size: 2rem;
       font-style: italic;
       font-family: "Georgia", "Times New Roman", serif;
       margin-bottom: 20px;
-      text-align: left;
+      text-align: center;
       line-height: 1.3;
       width: 100%;
     }
-    
+
     .title-container p {
       font-size: 1.1rem;
       line-height: 1.6;
       color: #444;
-      text-align: left;
-      margin: 0;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 800px;
     }
 
     /* ===================
@@ -145,8 +151,20 @@
       width: 100%;
       padding: 40px 0;
       background-color: white;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       position: relative;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .logo-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .logo-strip:active {
+      cursor: grabbing;
     }
 
     /* Effet de fondu sur les bords */
@@ -175,20 +193,28 @@
       display: flex;
       align-items: center;
       gap: 60px;
-      animation: scroll-left 40s linear infinite;
       padding: 20px;
+      animation: scroll-left 40s linear infinite;
+      width: max-content;
       will-change: transform;
     }
 
-    /* Lien qui englobe tout le bloc projet */
-    .project-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      width: 100%;
-      height: 100%;
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
-    
+
+    /* Pause l'animation automatique au survol ou interaction */
+    .logo-strip:hover .logos,
+    .logo-strip:active .logos,
+    .logo-strip.touched .logos {
+      animation-play-state: paused;
+    }
+
     .block {
       text-align: center;
       flex: 0 0 auto;
@@ -196,6 +222,15 @@
       height: 100%;
       cursor: pointer;
       position: relative;
+    }
+    
+    /* Lien qui englobe tout le bloc projet */
+    .project-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      height: 100%;
     }
     
     /* Effet au survol de tout le bloc */
@@ -227,15 +262,6 @@
       border-radius: 15px;
       box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
       border: 2px solid #f0f0f0;
-    }
-
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-25%); /* Ajusté pour 4 projets */
-      }
     }
 
     .caption {
@@ -378,21 +404,31 @@
         border-radius: 50px;
       }
 
-      /* CORRECTIONS MOBILE */
+      /* CORRECTIONS MOBILE - CENTRAGE DU TEXTE */
       .remise {
         padding: 90px 20px 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .title-container {
+        text-align: center;
+        margin: 0 auto;
       }
       
       .project-title {
         font-size: 1.6rem;
-        text-align: left;
+        text-align: center !important;
         margin-bottom: 15px;
       }
       
       .title-container p {
         font-size: 1rem;
-        text-align: left;
+        text-align: center !important;
         line-height: 1.5;
+        margin-left: auto;
+        margin-right: auto;
       }
       
       .logo-strip::before,
@@ -432,17 +468,20 @@
     @media screen and (max-width: 480px) {
       .remise {
         padding: 80px 15px 15px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
       }
       
       .project-title {
         font-size: 1.4rem;
-        text-align: left;
+        text-align: center !important;
         margin-bottom: 12px;
       }
       
       .title-container p {
         font-size: 0.9rem;
-        text-align: left;
+        text-align: center !important;
       }
       
       .logo-strip {
@@ -487,10 +526,19 @@
     @media screen and (max-width: 360px) {
       .remise {
         padding: 70px 10px 10px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
       }
       
       .project-title {
         font-size: 1.3rem;
+        text-align: center !important;
+      }
+      
+      .title-container p {
+        font-size: 0.85rem;
+        text-align: center !important;
       }
       
       .block {
