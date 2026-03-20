@@ -1,4 +1,4 @@
- /* ===================
+/* ===================
        STYLE GLOBAL
     =================== */
     * {
@@ -49,7 +49,6 @@
       cursor: pointer;
       padding: 0;
       z-index: 100;
-      margin-left: 270px;
     }
 
     .hamburger span {
@@ -244,6 +243,7 @@
     @media screen and (max-width: 768px) {
       header {
         padding: 10px 15px;
+        position: relative;
       }
       
       header img {
@@ -252,9 +252,59 @@
         margin-left: 0;
       }
       
-      /* Afficher le bouton hamburger */
+      /* Correction du bouton hamburger - alignement vertical */
       .hamburger {
         display: flex;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        right: 0;
+        top: 0;
+      }
+      
+      /* Ajuster la taille et l'espacement des lignes */
+      .hamburger span {
+        width: 25px;
+        height: 2.5px;
+        background-color: #000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        position: absolute;
+      }
+      
+      /* Positionnement individuel des lignes */
+      .hamburger span:nth-child(1) {
+        transform: translateY(-8px);
+      }
+      
+      .hamburger span:nth-child(2) {
+        opacity: 1;
+      }
+      
+      .hamburger span:nth-child(3) {
+        transform: translateY(8px);
+      }
+      
+      /* Animation quand actif (croix) */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+      }
+      
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 50%;
       }
       
       /* Cacher la navigation par défaut */
@@ -263,9 +313,9 @@
         flex-direction: column;
         position: absolute;
         top: 80px;
-        right: 0; /* Positionné à droite */
+        right: 0;
         background: white;
-        width: 250px; /* Largeur fixe pour le menu */
+        width: 250px;
         padding: 20px;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         z-index: 100;
@@ -281,12 +331,14 @@
       nav .button-group ul {
         flex-direction: column;
         gap: 15px;
-        align-items: flex-end; /* Alignement à droite */
+        align-items: flex-end;
+        margin: 0;
+        padding: 0;
       }
       
       nav .button-group a {
         margin: 10px 0;
-        text-align: right; /* Texte aligné à droite */
+        text-align: right;
         font-size: 18px;
         margin-right: 0;
         width: 100%;
@@ -297,7 +349,7 @@
       nav a.active {
         padding: 10px 15px;
         font-size: 16px;
-        background: transparent; /* Suppression du fond noir */
+        background: transparent;
         color: #4a6ee0;
         border: 2px solid #4a6ee0;
         text-align: center;
@@ -322,6 +374,10 @@
         padding-left: 0;
       }
       
+      .hero-text p {
+        text-align: center;
+      }
+      
       .hero img {
         width: 200px;
         margin: 0 auto;
@@ -330,6 +386,12 @@
       .logos img {
         height: 80px;
         width: 80px;
+      }
+      
+      .about-me {
+        text-align: center;
+        margin: 40px auto;
+        padding: 0 15px;
       }
     }
     
@@ -361,6 +423,11 @@
       }
       
       nav .button-group {
-        width: 200px; /* Largeur réduite sur mobile */
+        width: 200px;
+      }
+      
+      .about-me {
+        margin: 30px auto;
+        font-size: 0.9rem;
       }
     }
