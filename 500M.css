@@ -23,13 +23,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      padding: 15px 20px;
       background: #fff;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 20;
+      z-index: 1000;
       flex-wrap: wrap;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
@@ -39,6 +39,8 @@
       height: 72px;
       border-radius: 50%;
       margin-left: 10px;
+      object-fit: cover;
+      border: 2px solid #4a6ee0;
     }
     
     /* Menu hamburger (caché par défaut) */
@@ -52,8 +54,7 @@
       border: none;
       cursor: pointer;
       padding: 0;
-      z-index: 100;
-      margin-left: 270px;
+      z-index: 1001;
     }
 
     .hamburger span {
@@ -80,6 +81,7 @@
     nav .button-group {
       margin-right: 15px;
     }
+    
     nav .button-group ul a{
       gap: 40px;
       padding: 10px;
@@ -125,18 +127,16 @@
 
     .project-title {
       font-size: 3.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 50px;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  position: relative;
-  padding-bottom: 15px;
-
-  /* 🎨 Police personnalisée */
-  font-family: 'Poppins', sans-serif;
-  font-style: italic;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      position: relative;
+      padding-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
     }
 
     .project-title::after {
@@ -311,7 +311,7 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(calc(-500px * 3 - 90px)); /* 3 images * largeur + marges */
+        transform: translateX(calc(-500px * 3 - 90px));
       }
     }
 
@@ -377,6 +377,7 @@
     @media screen and (max-width: 768px) {
       header {
         padding: 10px 15px;
+        position: relative;
       }
       
       header img {
@@ -385,9 +386,60 @@
         margin-left: 0;
       }
       
-      /* Afficher le bouton hamburger */
+      /* Correction du bouton hamburger - aligné à droite et sur la même ligne */
       .hamburger {
         display: flex;
+        position: relative;
+        margin: 0;
+        margin-left: auto;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        right: 0;
+        top: 0;
+      }
+      
+      /* Ajuster la taille et l'espacement des lignes */
+      .hamburger span {
+        width: 25px;
+        height: 2.5px;
+        background-color: #000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        position: absolute;
+      }
+      
+      /* Positionnement individuel des lignes */
+      .hamburger span:nth-child(1) {
+        transform: translateY(-8px);
+      }
+      
+      .hamburger span:nth-child(2) {
+        opacity: 1;
+      }
+      
+      .hamburger span:nth-child(3) {
+        transform: translateY(8px);
+      }
+      
+      /* Animation quand actif (croix) */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+      }
+      
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 50%;
       }
       
       /* Cacher la navigation par défaut */
@@ -404,6 +456,9 @@
         z-index: 100;
         margin-right: 0;
         border-radius: 0 0 0 10px;
+        height: auto;
+        max-height: 400px;
+        overflow-y: auto;
       }
       
       /* Afficher la navigation quand active */
@@ -415,6 +470,8 @@
         flex-direction: column;
         gap: 15px;
         align-items: flex-end;
+        margin: 0;
+        padding: 0;
       }
       
       nav .button-group a {
